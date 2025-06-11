@@ -1,70 +1,77 @@
-import heroImage from '../assets/heroImage2x.png';
-import logo from '../assets/logo.svg';
+import heroImage from "../assets/heroImage2x.png";
+import logo from "../assets/logo.svg";
+import facebookIcon from "../assets/facebook.svg";
+import twitterIcon from "../assets/twitter.svg";
+import instagramIcon from "../assets/instagram.svg";
 
-const Footer = () => {
+const Footer = ({ data }) => {
   return (
     <footer
       className="relative w-full text-white pt-12 pb-6"
       style={{ backgroundImage: `url(${heroImage})` }}
     >
-      {/* Overlay oscuro */}
       <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-      {/* Contenido principal */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4">
-        {/* Logo y columnas */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4">
         <div className="flex flex-col items-center">
-          <img src={logo} alt="Logo" className="h-10 mb-8" />
-          <hr className="w-full border-t border-white border-opacity-20 mb-8" />
-          <div className="w-full flex flex-col md:flex-row justify-between text-center md:text-left mb-8 gap-8">
-            {/* About */}
-            <div className="flex-1">
-              <h4 className="uppercase font-bold mb-3 tracking-widest text-base">About</h4>
-              <ul className="space-y-1 text-sm text-white/80">
-                <li><a href="#" className="hover:text-gold transition">Shop</a></li>
-                <li><a href="#" className="hover:text-gold transition">Plan My Kitchen</a></li>
-                <li><a href="#" className="hover:text-gold transition">About Us</a></li>
-                <li><a href="#" className="hover:text-gold transition">Gallery</a></li>
-              </ul>
-            </div>
-            {/* Service */}
-            <div className="flex-1">
-              <h4 className="uppercase font-bold mb-3 tracking-widest text-base">Service</h4>
-              <ul className="space-y-1 text-sm text-white/80">
-                <li><a href="#" className="hover:text-gold transition">FAQ</a></li>
-                <li><a href="#" className="hover:text-gold transition">Contact</a></li>
-                <li><a href="#" className="hover:text-gold transition">How to Buy</a></li>
-                <li><a href="#" className="hover:text-gold transition">Downloads</a></li>
-              </ul>
-            </div>
-            {/* Info */}
-            <div className="flex-1">
-              <h4 className="uppercase font-bold mb-3 tracking-widest text-base">Info</h4>
-              <ul className="space-y-1 text-sm text-white/80">
-                <li><a href="#" className="hover:text-gold transition">Delivery</a></li>
-                <li><a href="#" className="hover:text-gold transition">Terms</a></li>
-                <li><a href="#" className="hover:text-gold transition">Privacy</a></li>
-              </ul>
-            </div>
-            {/* Follow */}
-            <div className="flex-1 flex flex-col items-center md:items-start">
-              <h4 className="uppercase font-bold mb-3 tracking-widest text-base">Follow</h4>
-              <div className="flex space-x-4 mb-2">
-                <a href="#" aria-label="Facebook"><i className="fa-brands fa-facebook-f text-xl hover:text-gold transition"></i></a>
-                <a href="#" aria-label="Twitter"><i className="fa-brands fa-twitter text-xl hover:text-gold transition"></i></a>
-                <a href="#" aria-label="Instagram"><i className="fa-brands fa-instagram text-xl hover:text-gold transition"></i></a>
-              </div>
-            </div>
+          <div className="flex items-center w-full mb-8">
+            <div className="flex-1 border-t border-white border-opacity-20"></div>
+            <img src={logo} alt="Logo" className="h-8 mx-6" />
+            <div className="flex-1 border-t border-white border-opacity-20"></div>
           </div>
-          <hr className="w-full border-t border-white border-opacity-20 mb-6" />
-          {/* Copyright */}
-          <div className="text-xs text-white/60 mb-1">
-            Copyright © Mike Home Kitchens 2019 - All rights reserved.<br />
-            Responsive website design. Development & Hosting by mhs.
+          <div className="w-[70%] flex flex-col md:flex-row justify-center text-center md:text-left mb-8 gap-8">
+          {data.columns.map((col, i) => (
+            <div key={i} className="flex-1">
+              <h4 className="font-bold mb-5 text-base">{col.heading}</h4>
+
+              {col.links && (
+                <ul className="space-y-1 text-sm text-white/80">
+                  {col.links.map(link => (
+                    <li key={link}>
+                      <a
+                        href="#"
+                        className="hover:text-gold transition uppercase font-light tracking-widest text-xs"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {col.social && (
+                <div className="flex space-x-4 justify-center md:justify-start">
+                  {col.social.map(name => {
+                    let src;
+                    if (name === 'facebook')  src = facebookIcon;
+                    else if (name === 'twitter')   src = twitterIcon;
+                    else if (name === 'instagram') src = instagramIcon;
+
+                    return (
+                      <a
+                        key={name}
+                        href="#"
+                        aria-label={name}
+                        className="transition hover:opacity-75"
+                      >
+                        <img src={src} alt={name} className="h-6 w-6" />
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+          <div className="text-xs text-white/40 mb-8 leading-loose text-center">
+            {data.copyright.first}
+            <br />
+            {data.copyright.second}
           </div>
+          <hr className="border-t border-white border-opacity-20 mb-6 w-full" />
         </div>
       </div>
     </footer>
   );
 };
 
-export default Footer; 
+export default Footer;

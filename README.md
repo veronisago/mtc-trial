@@ -1,12 +1,119 @@
-# React + Vite
+# MHK-Kitchens Homepage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is the homepage for **MHK-Kitchens**, a demonstration of a responsive, pixel-perfect website built with:
 
-Currently, two official plugins are available:
+- **React** (powered by Vite)
+- **Tailwind CSS**
+- **JSON** as a simulated Headless CMS data source
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Table of Contents
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. [Features](#features)
+2. [Project Structure](#project-structure)
+3. [Installation & Usage](#installation--usage)
+4. [Data (JSON)](#data-json)
+5. [Deployment](#deployment)
+6. [License](#license)
+
+---
+
+## Features
+
+- **Pixel-perfect** implementation based on an Adobe XD mockup
+- **Responsive** layout for mobile, tablet, and desktop
+- **Component-based** architecture: Navbar, Hero, Showcase, Testimonials, Gallery, Footer
+- **Headless CMS simulation**: dynamic content stored in `src/data/home.json`
+- **Static asset management** via imports for hashing and caching
+
+---
+
+## Project Structure
+
+```
+mtc-trial/
+├── public/             # Static files (favicon)
+├── src/
+│   ├── assets/         # Images and SVGs
+│   ├── common/         # Shared components/utilities (GoldButton)
+│   ├── components/     # React components consuming JSON
+│   ├── data/
+│   │   └── home.json   # Dynamic page content
+│   ├── App.jsx         # Main application entry
+│   ├── main.jsx        # Application bootstrapper
+│   └── index.css       # Tailwind CSS imports
+├── tailwind.config.js  # Tailwind CSS configuration
+├── postcss.config.js   # PostCSS configuration
+├── package.json        # Project metadata & scripts
+└── README.md           # This document
+```
+
+---
+
+## Installation & Usage
+
+### Prerequisites
+
+- Node.js v16 or newer
+- npm or Yarn
+
+### Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### Development Server
+
+```bash
+npm run dev
+# Visit: http://localhost:5173
+```
+
+### Production Build
+
+```bash
+npm run build
+# Preview build locally
+npm run preview
+```
+
+---
+
+## Data (JSON)
+
+All dynamic content resides in `src/data/home.json`:
+
+```json
+{
+  "navbar": { ... },
+  "hero": { ... },
+  "showcase": { ... },
+  "testimonial": { ... },
+  "gallery": { ... },
+  "footer": { ... }
+}
+```
+
+Each component receives its relevant data via props, separating content from presentation. When integrating with a real Headless CMS, you can replace this JSON import with API calls.
+
+---
+
+## Deployment
+
+The `dist/` folder can be deployed to any static hosting service (Vercel, Netlify, GitHub Pages, etc.). For example, to deploy with Vercel:
+
+```bash
+npm install -g vercel
+vercel
+```
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+

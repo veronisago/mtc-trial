@@ -1,0 +1,57 @@
+{
+    "navbar": {
+      "socialLinks": [
+        { "name": "facebook", "url": "#" },
+        { "name": "twitter",  "url": "#" },
+        { "name": "instagram","url": "#" }
+      ],
+      "menuItems": [
+        { "label": "Shop",            "url": "#" },
+        { "label": "Plan My Kitchen", "url": "#" },
+        { "label": "About Us",        "url": "#" },
+        { "label": "Gallery",         "url": "#" }
+      ],
+      "orderButton": { "label": "My Order", "url": "#" }
+    },
+  
+    "hero": {
+      "eyebrow": "DESIGN AND ORDER YOUR NEW KITCHEN ONLINE TODAY",
+      "title": "Bespoke & made to measure\nhandmade kitchen design",
+      "cta": { "label": "ORDER NOW", "url": "#" }
+    },
+  
+    "showcase": {
+      "eyebrow": "Quality Craftmanship from build to delivery",
+      "title": "Discover the beauty of a handmade kitchen",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget elit sit amet sapien venenatis maximus vel in urna. Nam mauris arcu, feugiat in finibus vitae, sollicitudin id purus. Ut imperdiet, magna eu pharetra tincidunt, mauris purus ultricies.",
+      "cta": { "label": "About Us", "url": "#" }
+    },
+  
+    "testimonial": {
+      "eyebrow": "What our customers say",
+      "title": "Over 35 years experience designing handmade kitchens",
+      "copy": "Since my first contact I have received a very high level of customer service and advice with my kitchen plans. Ben responded very quickly to all of my emails and delivery of the kitchen was as planned.",
+      "author": "Jane, Dundee",
+      "cta": { "label": "Frequently Asked Questions", "url": "#" }
+    },
+  
+    "gallery": {
+      "title": "Customer Gallery",
+      "cta": { "label": "View More", "url": "#" }
+    },
+  
+    "footer": {
+      "columns": [
+        { "heading": "About",   "links": ["Shop", "Plan My Kitchen", "About Us", "Gallery"] },
+        { "heading": "Service", "links": ["FAQ", "Contact", "How to Buy", "Downloads"] },
+        { "heading": "Info",    "links": ["Delivery", "Terms", "Privacy"] },
+        { "heading": "Follow",  "social": ["facebook", "twitter", "instagram"] }
+      ],
+      "copyright":
+      {
+        "first": "Copyright Online MTC Home Kitchens 2018 - All rights reserved.",
+        "second": "Responsive website design, Development & Hosting by mtc."
+      }
+    }
+  }
+  
