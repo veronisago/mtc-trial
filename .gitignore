@@ -29,3 +29,4 @@ dist-ssr
 
 .vercel
 .npmrc
+package-lock.json
